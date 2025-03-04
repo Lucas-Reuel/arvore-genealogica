@@ -1,11 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>arvore genealogica</title>
+    <title>Árvore Genealógica Interativa</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>monte sua arvore genealogica</h1>
+
+    <h1>Árvore Genealógica</h1>
+
+    <div class="form-container">
+        <input type="text" id="name" placeholder="Nome">
+        <input type="text" id="birthplace" placeholder="Local de nascimento">
+        <input type="number" id="birthyear" placeholder="Ano de nascimento">
+        <label>
+            <input type="checkbox" id="isDeceased"> Já faleceu?
+        </label>
+        <button onclick="addMember()">Adicionar</button>
+    </div>
+
+    <div id="tree-container"></div>
+    <canvas id="connections"></canvas>
+
+    <div id="trash" class="hidden">🗑️</div>
+
+    <div id="info-box" class="hidden">
+        <h2>Informações</h2>
+        <p><strong>Nome:</strong> <span id="info-name"></span></p>
+        <p><strong>Local de nascimento:</strong> <span id="info-birthplace"></span></p>
+        <p><strong>Ano de nascimento:</strong> <span id="info-birthyear"></span></p>
+        <p><strong>Idade:</strong> <span id="info-age"></span></p>
+        <p><strong>Status:</strong> <span id="info-status"></span></p>
+        <button onclick="enableEditing()">Editar</button>
+        <div id="edit-fields" class="hidden">
+            <input type="text" id="edit-name">
+            <input type="text" id="edit-birthplace">
+            <input type="number" id="edit-birthyear">
+            <label>
+                <input type="checkbox" id="edit-isDeceased"> Já faleceu?
+            </label>
+            <button onclick="saveEdits()">Salvar</button>
+        </div>
+        <button onclick="closeInfo()">Fechar</button>
+        
+    </div>
+
+    <script src="script.js"></script>
+
+
 </body>
 </html>
